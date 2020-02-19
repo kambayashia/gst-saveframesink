@@ -89,7 +89,7 @@ static GstStaticPadTemplate gst_saveframesink_sink_template =
 GST_STATIC_PAD_TEMPLATE ("sink",
     GST_PAD_SINK,
     GST_PAD_ALWAYS,
-    GST_STATIC_CAPS ("application/unknown")
+    GST_STATIC_CAPS ("video/x-raw,format=I420")
     );
 
 
@@ -111,8 +111,8 @@ gst_saveframesink_class_init (GstSaveframesinkClass * klass)
       &gst_saveframesink_sink_template);
 
   gst_element_class_set_static_metadata (GST_ELEMENT_CLASS(klass),
-      "FIXME Long name", "Generic", "FIXME Description",
-      "FIXME <fixme@example.com>");
+      "get iframe and save", "Frame/Samle", "description dayo",
+      "kambayashia <kambayashia@gmail.com>");
 
   gobject_class->set_property = gst_saveframesink_set_property;
   gobject_class->get_property = gst_saveframesink_get_property;
