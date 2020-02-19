@@ -4,4 +4,7 @@ services:
     build: .
     volumes:
       - .:/work
+    environment:
+      - GST_DEBUG=3
+      - GST_PLUGIN_PATH=.
     tty: true
