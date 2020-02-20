@@ -35,6 +35,7 @@
 #endif
 
 #include <gst/gst.h>
+#include <gst/video/video.h>
 #include <gst/base/gstbasesink.h>
 #include "gstsaveframesink.h"
 
@@ -89,7 +90,7 @@ static GstStaticPadTemplate gst_saveframesink_sink_template =
 GST_STATIC_PAD_TEMPLATE ("sink",
     GST_PAD_SINK,
     GST_PAD_ALWAYS,
-    GST_STATIC_CAPS ("video/x-raw,format=I420")
+                         GST_STATIC_CAPS(GST_VIDEO_CAPS_MAKE("I420"))
     );
 
 
@@ -113,7 +114,7 @@ gst_saveframesink_class_init (GstSaveframesinkClass * klass)
   gst_element_class_set_static_metadata (GST_ELEMENT_CLASS(klass),
       "get iframe and save", "Frame/Samle", "description dayo",
       "kambayashia <kambayashia@gmail.com>");
-
+  /*
   gobject_class->set_property = gst_saveframesink_set_property;
   gobject_class->get_property = gst_saveframesink_get_property;
   gobject_class->dispose = gst_saveframesink_dispose;
@@ -134,8 +135,11 @@ gst_saveframesink_class_init (GstSaveframesinkClass * klass)
   base_sink_class->prepare = GST_DEBUG_FUNCPTR (gst_saveframesink_prepare);
   base_sink_class->prepare_list = GST_DEBUG_FUNCPTR (gst_saveframesink_prepare_list);
   base_sink_class->preroll = GST_DEBUG_FUNCPTR (gst_saveframesink_preroll);
+  */
   base_sink_class->render = GST_DEBUG_FUNCPTR (gst_saveframesink_render);
+  /*
   base_sink_class->render_list = GST_DEBUG_FUNCPTR (gst_saveframesink_render_list);
+  */
 
 }
 
